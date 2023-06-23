@@ -1,5 +1,11 @@
-class Ground extends ParallaxComponent<FlappyBirdGame> {
-  Ground();
+import 'package:flame/collisions.dart';
+import 'package:flame/flame.dart';
+import 'package:flame/components.dart';
+import 'package:flame/parallax.dart';
+import 'package:flappy_bird/internal/application.dart';
+
+class Land extends ParallaxComponent<GameApp> {
+  Land();
 
   @override
   Future<void> onLoad() async {

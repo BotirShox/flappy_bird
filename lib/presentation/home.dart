@@ -1,13 +1,41 @@
+import 'package:flappy_bird/internal/application.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-class Home extends StatefulWidget {
+class EndPage extends StatelessWidget {
+  final GameApp game;
+
+  const EndPage({
+    Key? key,
+    required this.game,
+  }) : super(key: key);
+
   @override
-  _HomeState createState() => _HomeState();
-}
-class _HomeState extends State<Home> {
-  @override
-  Widget build(BuildContext context){
-    return Scaffold();
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.black38,
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'Конец Игры',
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            ),
+            TextButton(
+              onPressed: () {
+                game.restartGame();
+                game.overlays.remove('Возобновить');
+              },
+              child: Text(
+                'Возобновить',
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
